@@ -9,7 +9,10 @@
 const formulaire = document.querySelector('form');
 const txtMDP = document.querySelector('#password');
 const txtMDPConfirm = document.querySelector('#confirmPassword');
-console.log(formulaire, txtMDP, txtMDPConfirm);
+const listeBackground = document.querySelector('#background');
+const body =document.querySelector('body');
+console.log(formulaire, txtMDP, txtMDPConfirm, listeBackground, body);
+
 // Ecouter l'envoi du formulaire (=> c'est pour être quitte d'écrire function
 formulaire.addEventListener('submit', (event) => {
 //Stoppe l'envoi du formulaire
@@ -47,3 +50,9 @@ formulaire.addEventListener('submit', (event) => {
 
 
 });
+
+// Ecouter le changement de valuer dans la iste déroulante
+listeBackground.addEventListener('change', ()=> {
+    //remplacer img de fond du body
+    body.style.backgroundImage = 'url(./img/backgrounds/'+ listeBackground.value +')';
+})

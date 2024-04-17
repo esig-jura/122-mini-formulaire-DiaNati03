@@ -7,8 +7,8 @@
 
 // Récupération du formulaire
 const formulaire = document.querySelector('form');
-const txtMDP = document.querySelector('#mdp');
-const txtMDPConfirm = document.querySelector('#mdpc');
+const txtMDP = document.querySelector('#password');
+const txtMDPConfirm = document.querySelector('#confirmPassword');
 console.log(formulaire, txtMDP, txtMDPConfirm);
 // Ecouter l'envoi du formulaire (=> c'est pour être quitte d'écrire function
 formulaire.addEventListener('submit', (event) => {
@@ -35,11 +35,15 @@ formulaire.addEventListener('submit', (event) => {
 //S'il y a des erreurs
     if(erreurs.length > 0) {
         let msg = '';
+
+        //pour chaque erreur dans le tableau
         for (let e of erreurs){
             msg += '\n' + e;
         }
+        alert(msg);
+        //Stop la fonction
+        return;
     }
-    alert(msg);
-//Stop la fonction
-    return;
+
+
 });
